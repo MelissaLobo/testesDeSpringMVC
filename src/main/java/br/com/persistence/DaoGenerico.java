@@ -7,7 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-public class DaoGenerico <T, I extends Serializable> {
+public abstract class DaoGenerico <T, I extends Serializable> {
 		// T é o tipo, a classe. E I é o tipo do id, int ou long
 
 		protected EntityManager entityManager;
