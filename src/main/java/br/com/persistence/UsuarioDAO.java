@@ -19,11 +19,12 @@ public class UsuarioDAO extends DaoGenerico<Usuario, Long> {
 	public void init() {
 		entityManager = manager;
 	}
-	
+
 	public Usuario buscaPorLoginESenha(Usuario usuario) {
 
 		try {
-			Query query = entityManager.createQuery("from Usuario usuario where usuario.email = :email AND usuario.senha = :senha");
+			Query query = entityManager
+					.createQuery("from Usuario usuario where usuario.email = :email AND usuario.senha = :senha");
 			query.setParameter("email", usuario.getEmail());
 			query.setParameter("senha", usuario.getSenha());
 

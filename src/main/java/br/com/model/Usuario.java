@@ -6,16 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-
 @Entity
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
-	@Size(min=3, message="{usuario.senha.tamanho}")
+	@Size(min = 3, message = "{usuario.senha.tamanho}")
 	private String senha;
 
 	public Usuario() {
@@ -33,9 +32,6 @@ public class Usuario {
 		this.senha = senha;
 		this.nome = name;
 	}
-
-	
-	
 
 	public Long getId() {
 		return id;
@@ -69,7 +65,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	
 	public String toString() {
 		return "  \n nome:" + nome + " \n email:" + email;
 	}
