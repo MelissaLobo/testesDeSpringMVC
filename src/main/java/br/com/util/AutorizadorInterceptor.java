@@ -16,7 +16,6 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 				|| uri.endsWith("cadastro") || uri.endsWith("index")
 				|| uri.endsWith("erro") || uri.contains("resources")
 				|| uri.endsWith("login"))
-			
 			return true;
 
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
