@@ -25,6 +25,7 @@ public class FiltroTransacao implements Filter {
 		try {
 			System.out.println("filtro de transacao antes");
 			EntityLocal.currentEntityManager.set(JpaUtil.getEntityManager());
+			
 			EntityLocal.currentEntityManager.get().getTransaction().begin();
 
 			chain.doFilter(request, response);
