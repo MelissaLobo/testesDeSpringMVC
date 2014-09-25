@@ -43,7 +43,7 @@ public class UsuarioController {
 	@RequestMapping("/login")
 	public String logar(Usuario usuario, HttpSession session) {
 
-		if (funcao.logar(usuario)!= null) {
+		if (funcao.logar(usuario) != null) {
 			session.setAttribute("usuarioLogado", usuario);
 			return "home";
 		} else {

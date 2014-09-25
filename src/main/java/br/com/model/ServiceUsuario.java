@@ -2,9 +2,10 @@ package br.com.model;
 
 import java.util.List;
 
+import br.com.persistence.ServiceUsuarioDAO;
 import br.com.persistence.UsuarioDAO;
 
-public class ServiceUsuario {
+public class ServiceUsuario implements ServiceUsuarioDAO{
 
 	
 	private UsuarioDAO dao;
