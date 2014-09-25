@@ -10,18 +10,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.model.ServiceUsuario;
 import br.com.model.Usuario;
-import br.com.persistence.UsuarioDAO;
 
 @Transactional
 @Controller
 public class UsuarioController {
 
-	private UsuarioDAO dao;
+	private ServiceUsuario funcao;
 
 	@Autowired
-	public UsuarioController(UsuarioDAO dao) {
-		this.dao = dao;
+	public UsuarioController(ServiceUsuario funcao) {
+		this.funcao = funcao;
 	}
 
 	@RequestMapping("/formCadastro")
@@ -30,9 +30,8 @@ public class UsuarioController {
 	}
 
 	@RequestMapping("/cadastro")
-	public String cadastrarUsuario(Usuario usuario) {
-
-		dao.create(usuario);
+	public String cadastrar(Usuario usuario) {
+		funcao.cadastrarUsuario(usuario);
 		return "loginForm";
 	}
 
@@ -44,7 +43,7 @@ public class UsuarioController {
 	@RequestMapping("/login")
 	public String logar(Usuario usuario, HttpSession session) {
 
-		if (dao.buscaPorLoginESenha(usuario) != null) {
+		if (funcao.logar(usuario)!= null) {
 			session.setAttribute("usuarioLogado", usuario);
 			return "home";
 		} else {
@@ -55,7 +54,7 @@ public class UsuarioController {
 	@RequestMapping("/listaUsuario")
 	public ModelAndView listaDeUsuarios() {
 
-		List<Usuario> usuarios = dao.findAll();
+		List<Usuario> usuarios = funcao.listaDeUsuarios();
 
 		ModelAndView mv = new ModelAndView("lista");
 		mv.addObject("todosOsUsuarios", usuarios);
