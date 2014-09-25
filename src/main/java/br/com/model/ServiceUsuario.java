@@ -5,9 +5,8 @@ import java.util.List;
 import br.com.persistence.ServiceUsuarioDAO;
 import br.com.persistence.UsuarioDAO;
 
-public class ServiceUsuario implements ServiceUsuarioDAO{
+public class ServiceUsuario implements ServiceUsuarioDAO {
 
-	
 	private UsuarioDAO dao;
 
 	public void cadastrarUsuario(Usuario usuario) {
